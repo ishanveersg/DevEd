@@ -19,34 +19,47 @@
     <section>
         <div class="container">
             <div class="flexbox-container">
-                <div class="devpath">
+                <div class="devpath" id="mobile">
                     <div class="flexbox-container-vertical" >
-                        <img src="images/mobile.png" alt="mobile image" style="max-width: 60%; margin-top: 20px;">
+                        <img src="images/mobile.png" alt="mobile icon" style="max-width: 60%; margin-top: 20px;">
                         <span class="devpathTitle" style="font-weight: bold;">Mobile Application</span>
                     </div>
                 </div>
-                <div class="devpath">
+                <div class="devpath" id="web">
                     <div class="flexbox-container-vertical" >
-                        <img src="images/web.jpg" alt="laptop image" style="max-width: 60%; margin-top: 20px;">
+                        <img src="images/web.jpg" alt="web icon" style="max-width: 60%; margin-top: 20px;">
                         <span class="devpathTitle" style="font-weight: bold;">Web Developement</span>
                     </div>
                 </div>
             </div>
             <div class="flexbox-container">
-                <div class="devpath">
+                <div class="devpath" id="desktop">
                     <div class="flexbox-container-vertical" >
-                        <img src="images/desktop.png" alt="mobile image" style="max-width: 60%; margin-top: 20px;">
+                        <img src="images/desktop.png" alt="desktop icon" style="max-width: 60%; margin-top: 20px;">
                         <span class="devpathTitle" style="font-weight: bold;">Desktop Application</span>
                     </div>
                 </div>
-                <div class="devpath">
+                <div class="devpath" id="linux">
                     <div class="flexbox-container-vertical" >
-                        <img src="images/Linux.png" alt="laptop image" style="max-width: 60%; margin-top: 20px;">
+                        <img src="images/Linux.png" alt="linux icon" style="max-width: 60%; margin-top: 20px;">
                         <span class="devpathTitle" style="font-weight: bold;">Linux Administration</span>
                     </div>
                 </div>
             </div>
     </section>
+    <script type="text/javascript">
+        document.getElementById("mobile").onclick = function () {
+            location.href = "mobile.html";
+        };
+        document.getElementById("web").onclick = function () {
+            location.href = "web.html";
+        };
+        document.getElementById("desktop").onclick = function () {
+            location.href = "desktop.html";
+        };
+        document.getElementById("linux").onclick = function () {
+            location.href = "linux.html";
+        };
+    </script>
 </body>
-
 </html>
