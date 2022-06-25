@@ -1,0 +1,42 @@
+h1 {
+    background: -webkit-linear-gradient(rgb(255, 0, 0), rgb(0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.title{
+    text-align: center;
+    font-size: 20px;
+}
+body{
+    font-family: 'Roboto';
+}
+
+.flexbox-container {
+    display: flex;
+    justify-content: center;
+}
+
+.flexbox-container-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.devpath {
+    width: 250px;
+    height: 250px;
+    margin: 30px;
+    border: 2px solid #8f8f8f; 
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px #bfbfbf;
+}
+.devpath:hover { 
+    background-color: red; 
+    color: white;
+}
+
+.devpathTitle {
+    margin-top: 30px;
+    font-size: 16px;
+}
