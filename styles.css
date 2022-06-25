@@ -1,14 +1,14 @@
-h1 {
-    background: -webkit-linear-gradient(rgb(255, 0, 0), rgb(0, 0, 0));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+html{
+    font-family: 'Roboto';
 }
+
 .title{
     text-align: center;
     font-size: 20px;
 }
+
 body{
-    font-family: 'Roboto';
+    background-image: url("images/background.jpg");
 }
 
 .flexbox-container {
@@ -30,9 +30,10 @@ body{
     border: 2px solid #8f8f8f; 
     border-radius: 20px;
     box-shadow: 5px 5px 8px #bfbfbf;
+    background-color: white;
 }
 .devpath:hover { 
-    background-color: red; 
+    background-color: rgb(230, 83, 83); 
     color: white;
 }
 
