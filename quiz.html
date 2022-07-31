@@ -7,24 +7,45 @@
     <title>Quiz</title>
 </head>
 <body>
-    <input type="text" name="" placeholder="Enter your name" id="name">
-    <button>Continue as Anonymous</button>
+    <div>
+        <form name="myform"  method="get" >
+            
+            <h1> Hello ! Welcome ! What's your name ?  </h1>
+            <input type="text" name="username" placeholder="Enter your name" id="name">
+            <h1>What languages are you familiar with?</h1>
+              <input type="checkbox" id="html" name="fav_language" value="HTML">
+              <label for="html">HTML</label><br>
+              <input type="radio" id="css" name="fav_language" value="CSS">
+              <label for="css">CSS</label><br>
+              <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+              <label for="javascript">JavaScript</label>
 
-
-
-    <h1>What languages are you familiar with?</h1>
-      <input type="radio" id="html" name="fav_language" value="HTML">
-      <label for="html">HTML</label><br>
-      <input type="radio" id="css" name="fav_language" value="CSS">
-      <label for="css">CSS</label><br>
-      <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-      <label for="javascript">JavaScript</label>
-
-    <h1>Are you looking to learn programming for school or for projects?</h1>
-    <button>School/University</button>
-    <button>Build cool personal projects</button>
-
-    <button></button>
+            <h1>Are you looking to learn programming for school or for projects?</h1>
     
+            
+            <input type="button" name="buttonS" value=" Submit" onclick="setValues(this.form)">
+          </form>           
+    </div>
+    <div>
+  
+
+
+  
+
+
+        <script type="text/javascript">
+            function setValues(form) {
+                console.log("worked!")
+                let name = form.username.value; 
+                
+                // set values 
+                localStorage.setItem("username", name);
+
+                // go to next page 
+                document.location.href = "welcome.html"; 
+            }
+
+        </script>
 </body>
+
 </html>
