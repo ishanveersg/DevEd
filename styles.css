@@ -41,3 +41,30 @@ body{
     margin-top: 30px;
     font-size: 16px;
 }
+
+.quiz {
+    width: 550px;
+    height: 100px;
+    margin: auto;
+    margin-top: 25px;
+    border: 2px solid #8f8f8f; 
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px #bfbfbf;
+    background-color: white;
+    color:rgb(230, 83, 83);
+}
+
+.quiz:hover { 
+    background-color: rgb(230, 83, 83); 
+    color: white;
+}
+
+.quizTitle{
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+
+
+
