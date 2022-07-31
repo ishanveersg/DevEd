@@ -53,13 +53,13 @@
 
             <!-- Particular interests  -->
             <h2>What platforms are you interested in?</h2>
-            <input type="checkbox" id="mobileInterest" name="mobileInterest" value="mobile">
+            <input type="radio" id="mobileInterest" name="interest" value="mobile">
                 <label for="Mobile">Mobile</label><br>
-                <input type="checkbox" id="desktopInterest" name="desktopInterest" value="Desktop">
+                <input type="radio" id="desktopInterest" name="interest" value="Desktop">
                 <label for="desktop">Desktop</label><br>
-                <input type="checkbox" id="WebInterest" name="WebInterest" value="Web">
+                <input type="radio" id="WebInterest" name="interest" value="Web">
                 <label for="Web">Web</label><br>
-                <input type="checkbox" id="allInterest" name="allInterest" value="all">
+                <input type="radio" id="allInterest" name="interest" value="all">
                 <label for="all">All of the above</label><br><br>
 
 
@@ -128,7 +128,7 @@
                     }
                 }
                 for (let i = 0 ; i < 6 ; i++){
-                    if (languages_values[i] == 0 ){
+                    if (languages_values[i] === 0 ){
                         localStorage.setItem(languages[i],"0"); 
                     } else {
                         localStorage.setItem(languages[i],"1"); 
@@ -180,27 +180,75 @@
 
 
                 // get particular interests 
-                if (form.mobileInterest.checked){
-                    localStorage.setItem("mobileInterest","true");
-                } else {
-                    localStorage.setItem("mobileInterest","false");
-                }   
-                if (form.desktopInterest.checked){
-                    localStorage.setItem("desktopInterest","true"); 
-                } else {
-                    localStorage.setItem("desktopInterest","false");
+
+                let count_interest = - 1  ; 
+                for (let count = 0 ; count < 3 ; count++){
+                    if (form.interest[count].checked){
+                        count_interest = count; 
+                        break; 
+                    }
                 }
-                if (form.WebInterest.checked){
-                    localStorage.setItem("webInterest","true");
-                } else {
-                    localStorage.setItem("desktopInterest","false");
+                let interest = ["mobileInterest","desktopInterest", "webInterest","allInterest"]
+                switch(count_interest){
+                    case 0 : 
+                        // set its value to true 
+                        localStorage.setItem(interest[0],"true");
+                        // and all the rest to false 
+                        localStorage.setItem(interest[1],"false"); 
+                        localStorage.setItem(interest[2],"false");
+                        localStorage.setItem(interest[3],"false");
+                        break; 
+                    case 1 : 
+                     // set its value to true 
+                          localStorage.setItem(interest[1],"true");
+                        // and all the rest to false 
+                        localStorage.setItem(interest[0],"false"); 
+                        localStorage.setItem(interest[2],"false");
+                        localStorage.setItem(interest[3],"false");
+                        break; 
+                    case 2 : 
+                     // set its value to true 
+                     localStorage.setItem(interest[2],"true");
+                        // and all the rest to false 
+                        localStorage.setItem(interest[0],"false"); 
+                        localStorage.setItem(interest[1],"false");
+                        localStorage.setItem(interest[3],"false"); 
+                        break; 
+                    case 3 : 
+                         // set its value to true 
+                         localStorage.setItem(interest[3],"true");
+                        // and all the rest to true - since it's all 
+                        localStorage.setItem(interest[1],"true"); 
+                        localStorage.setItem(interest[2],"true");
+                        localStorage.setItem(interest[3],"true");
+                        break ; 
                 }
-                if (form.allInterest.checked){
-                    localStorage.setItem("allInterest","true"); 
-                } else {
-                    localStorage.setItem("desktopInterest","false");
-                }
-                //
+                
+
+                // if (form.mobileInterest.checked){
+                //     localStorage.setItem("mobileInterest","true");
+                //     // uncheck the rest 
+                //     form.desktopInterest.checked = false; 
+                //     form.WebInterest.checked = false ; 
+                // } else {
+                //     localStorage.setItem("mobileInterest","false");
+                // }   
+                // if (form.desktopInterest.checked){
+                //     localStorage.setItem("desktopInterest","true"); 
+                // } else {
+                //     localStorage.setItem("desktopInterest","false");
+                // }
+                // if (form.WebInterest.checked){
+                //     localStorage.setItem("webInterest","true");
+                // } else {
+                //     localStorage.setItem("desktopInterest","false");
+                // }
+                // if (form.allInterest.checked){
+                //     localStorage.setItem("allInterest","true"); 
+                // } else {
+                //     localStorage.setItem("desktopInterest","false");
+                // }
+                // //
 
 
 

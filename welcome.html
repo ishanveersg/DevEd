@@ -58,7 +58,102 @@
         let all = localStorage.getItem("allInterest"); 
 
         // display results (temporary) - juste pour etre sur que les bonnes valeura sont transm8ses 
-        document.getElementById("values").innerHTML=  "Values received : " + username  + "  "  + html.toString() +  " " + css.toString() +  " " + js.toString() +  " " + python.toString() +  " " + java.toString() +  " " + cpp.toString +  " " + reason +  " " + patience +  " " + mobile +  " " + desktop +  " " + web +  " " + all;
+        // document.getElementById("values").innerHTML=  "Values received : " + username  + "  "  + html.toString() +  " " + css.toString() +  " " + js.toString() +  " " + python.toString() +  " " + java.toString() +  " " + cpp.toString +  " " + reason +  " " + patience +  " " + mobile +  " " + desktop +  " " + web +  " " + all;
+
+        // create scenario
+        let path = ""; 
+        let recommended_language = ""; 
+        let recommended_plateform = "" ; 
+        // Interest in all plateforms
+
+        if (all === "true") {
+
+            console.log("All true"); 
+            if (patience === "now"){
+                recommended_language = "javascript";
+                recommended_plateform = "web";  
+            } else if (patience == "canWait"){
+                recommended_language = "javascript";
+                recommended_plateform = "crossplateform";  
+            } 
+
+        } else if ( mobile === "true"){
+            console.log(" mobile true"); 
+
+            if (patience === "now"){
+                if (js === 0 && java === 0) {
+                 recommended_language = "javascript";
+                 recommended_plateform = "mobile";  
+                } else if (java != 0 ) {
+                    recommended_language = "java";
+                    recommended_plateform = "mobile";  
+                } 
+                
+            } else if (patience == "canWait"){
+                if (js === 0 ) {    
+                    recommended_language = "java";
+                    recommended_plateform = "mobile";  
+                } else if (js  != 0 ) {
+                    recommended_language = "javascript";
+                    recommended_plateform = "mobile";  
+                }
+                
+            } 
+
+
+        } else if (web === "true "){
+            console.log("web true"); 
+
+            // seriously, the web is easier with js no matter what (personal opinion XD)
+            recommended_language = "javascript";
+            recommended_plateform = "web";  
+
+            
+
+        } else if (desktop === "true "){
+            console.log("desktop true"); 
+
+            if (patience === "now"){
+               if ( java === 0 ){
+                    if ( cpp === 0){
+                    recommended_language = "javascript";
+                    recommended_plateform = "desktop";  
+                    } else if (cpp != 0){
+                    recommended_language = "c++";
+                    recommended_plateform = "desktop";  
+                    }
+
+               } else {
+                recommended_language = "java";
+                recommended_plateform = "desktop";  
+               }
+                
+            } else if (patience == "canWait"){
+                if (cpp === 0 ){
+                        if (java === 0 ){
+                        recommended_language = "c++";
+                        recommended_plateform = "desktop";  
+                        } else {
+                         recommended_language = "java";
+                        recommended_plateform = "desktop";  
+                        }
+                } else {
+                    recommended_language = "c++";
+                    recommended_plateform = "desktop";  
+                }
+                
+            } 
+
+        }
+        
+        // let the user know 
+        path = " we suggest that you learn the programming language " + recommended_language + " for the plateform  " + recommended_plateform + " "; 
+        
+        document.getElementById("values").innerHTML= "Based on your reponses, " + path + " ." + " Please click on  the cards ! " ; 
+
+
+
+
 
 
     </script>
