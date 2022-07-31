@@ -23,11 +23,43 @@
             </div>
         </div>
     </section>
+    <section>
+        <div class="quiz" id="values">
+            <div class="flexbox-container-vertical" >
+                <span>Take our quiz!</span>
+            </div>
+        </div>
+    </section>
 
     <script type="text/javascript">
-      // get values 
+      // get values from local storage 
+        // get name 
         let username =  localStorage.getItem("username");
         document.getElementById("welcome").innerHTML=  "Welcome to our website " + username;
+
+        // get languages 
+        let html = parseInt(localStorage.getItem("html"));
+        let css = parseInt(localStorage.getItem("css")); 
+        let js = parseInt(localStorage.getItem("js")); 
+        let python = parseInt(localStorage.getItem("python")); 
+        let java =  parseInt(localStorage.getItem("java")); 
+        let cpp = parseInt(localStorage.getItem("cpp"));  
+
+        // get reason for learning 
+        let reason =  localStorage.getItem("ReasonForLearning"); 
+        
+        // get patience 
+        let patience =   localStorage.getItem("shareTime"); 
+
+        // get interests 
+        let mobile  =  localStorage.getItem("mobileInterest");
+        let desktop = localStorage.getItem("desktopInterest"); 
+        let web = localStorage.getItem("webInterest");
+        let all = localStorage.getItem("allInterest"); 
+
+        // display results (temporary) - juste pour etre sur que les bonnes valeura sont transm8ses 
+        document.getElementById("values").innerHTML=  "Values received : " + username  + "  "  + html.toString() +  " " + css.toString() +  " " + js.toString() +  " " + python.toString() +  " " + java.toString() +  " " + cpp.toString +  " " + reason +  " " + patience +  " " + mobile +  " " + desktop +  " " + web +  " " + all;
+
 
     </script>
 </body>
