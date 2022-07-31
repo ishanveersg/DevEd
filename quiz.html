@@ -10,19 +10,56 @@
     <div>
         <form name="myform"  method="get" >
             
+            <!-- get name  -->
             <h1> Hello ! Welcome ! What's your name ?  </h1>
             <input type="text" name="username" placeholder="Enter your name" id="name">
-            <h1>What languages are you familiar with?</h1>
-              <input type="checkbox" id="html" name="fav_language" value="HTML">
-              <label for="html">HTML</label><br>
-              <input type="radio" id="css" name="fav_language" value="CSS">
-              <label for="css">CSS</label><br>
-              <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-              <label for="javascript">JavaScript</label>
 
-            <h1>Are you looking to learn programming for school or for projects?</h1>
-    
+            <!-- get languages  -->
+            <h2>What languages are you familiar with?</h2>
+              <input type="checkbox" id="html" name="know_html" value="HTML">
+              <label for="html">HTML</label><br>
+              <input type="checkbox" id="css" name="know_css" value="CSS">
+              <label for="css">CSS</label><br>
+              <input type="checkbox" id="javascript" name="know_js" value="JavaScript">
+              <label for="javascript">JavaScript</label>
+            <input type="checkbox" id="java" name="know_java" value="java">
+              <label for="java">Java</label>
+            <input type="checkbox" id="python" name="know_python" value="python">
+              <label for="python">Python</label>
+            <input type="checkbox" id="cpp" name="know_cpp" value="cpp">
+              <label for="cpp">C++</label>
+
+
+
+            <!-- get reason for learning -->
+            <h2> Why to you wish to learn programming </h2>
+            <input type="radio" id="school" name="reason" value="school" onclick=0 >
+            <label for="school"> to prepare for school/university </label><br>
+            <input type="radio" id="project" name="reason" value="projects" onclick=0>
+            <label for="projects"> to build cool projects </label><br>
+            <input type="radio" id="hacker" name="reason" value="hacker" onclick=0>
+            <label for="hacker"> to be a hackerman XD  </label><br>
             
+            <!-- how quickly does he want the results -->
+            <h2> How quicky do you want to share the results of your learning ? </h2>
+            <input type="radio" id="fast" name="shareTime" value="fast">
+            <label for="share"> I want to do it as soon as possible </label><br>
+            <input type="radio" id="slow" name="shareTime" value="slow">
+            <label for="share"> i don't mind waiting (perfection takes time !)</label><br>
+
+            <!-- Particular interests  -->
+            <h2> Are you particulary interested in a type/plateform ? </h2>
+            <input type="checkbox" id="mobileInterest" name="mobileInterest" value="mobile">
+              <label for="Mobile">Mobile</label><br>
+              <input type="checkbox" id="desktopInterest" name="desktopInterest" value="Desktop">
+              <label for="desktop">Desktop</label><br>
+              <input type="checkbox" id="WebInterest" name="WebInterest" value="Web">
+              <label for="Web">Web</label>
+            <input type="checkbox" id="allInterest" name="allInterest" value="all">
+              <label for="all"> All of the above</label>
+
+
+            <!-- form  submission -->
             <input type="button" name="buttonS" value=" Submit" onclick="setValues(this.form)">
           </form>           
     </div>
@@ -30,19 +67,149 @@
   
 
 
-  
-
-
         <script type="text/javascript">
             function setValues(form) {
                 console.log("worked!")
                 let name = form.username.value; 
-                
-                // set values 
-                localStorage.setItem("username", name);
+                let counter = 0; 
+                let hasname= true; 
 
-                // go to next page 
-                document.location.href = "welcome.html"; 
+                //variables
+                let html = 0, css = 0, js = 0, pyhton = 0, java  = 0, cpp = 0; 
+
+                // 
+
+
+                while(name==="" && counter==0){
+                    alert("Please enter your name !")
+                    counter +=1 ; 
+                    hasname = false;
+                }
+                if (!hasname){
+                    // reload the page 
+                    document.location.href = "quiz.html"; 
+                } else {
+                    // proceed and store value in the localStorage  
+                     
+                    // get name 
+                    localStorage.setItem("username", name);
+
+                    // get languages 
+                    let known_languages = new Array (form.know_html.checked, form.know_css.checked, form.know_js.checked, form.know_python.checked, form.know_java, form.know_cpp);
+                    let languages = ["html","css", "js", "python", "java","cpp"];
+                    let languages_values = [0,0,0,0,0,0]; 
+                    // increment values for the chosen languages 
+                    for ( let i = 0 ; i < 6 ; i++){
+                        switch(known_languages[i]){
+                            case true : 
+                                if (languages[i] === "html" ){
+                                    html+=1; 
+                                    languages_values[i]+=1 ; 
+                                } else if (languages[i] === "css"){
+                                    css+=1; 
+                                    languages_values[i]+=1 ; 
+                                } else if (languages[i] === "js"){
+                                    js +=1 ;
+                                    languages_values[i]+=1 ; 
+                                } else if (languages[i] === "python"){
+                                    python +=1 ;
+                                    languages_values[i]+=1 ; 
+                                } else if (languages[i] === "java") {
+                                    java +=1 ;
+                                    languages_values[i]+=1 ; 
+                                } else if (languages[i] === "cpp"){
+                                    cpp +=1 ; 
+                                    languages_values[i]+=1 ; 
+                                } else {
+                                    // nothing 
+                                }
+                                break ; 
+                            case false : 
+                                languages[i]+=0 ; 
+                                break ; 
+                        }
+                    }
+                    for (let i = 0 ; i < 6 ; i++){
+                        if (languages_values[i] == 0 ){
+                            localStorage.setItem(languages[i],"0"); 
+                        } else {
+                            localStorage.setItem(languages[i],"1"); 
+                        }
+                    }
+
+                    // get reason for learning 
+                    let count_reason = - 1  ; 
+                    for (let count = 0 ; count < 3 ; count++){
+                        if (form.reason[count].checked){
+                            count_reason = count; 
+                            break; 
+                        }
+                    }
+                    let reasons = ["school","projects", "hacking"]
+                    switch(count_reason){
+                        case 0 : 
+                            localStorage.setItem("ReasonForLearning",reasons[0]); 
+                            break; 
+                        case 1 : 
+                        localStorage.setItem("ReasonForLearning",reasons[1]); 
+                            break; 
+                        case 2 : 
+                        localStorage.setItem("ReasonForLearning",reasons[2]); 
+                            break; 
+
+                    }
+                    alert("Choice " + localStorage.getItem("ReasonForLearning") + " is selected"); 
+
+                    // get "patience"
+                    let count_patience = - 1  ; 
+                    for (let count = 0 ; count < 3 ; count++){
+                        if (form.shareTime[count].checked){
+                            count_reason = count; 
+                            break; 
+                        }
+                    }
+                    let patience = ["now","canWait"]
+                    switch(count_reason){
+                        case 0 : 
+                            localStorage.setItem("shareTime",patience[0]); 
+                            break; 
+                        case 1 : 
+                        localStorage.setItem("shareTime",patience[1]); 
+                            break; 
+
+                    }
+
+
+
+                    // get particular interests 
+                    if (form.mobileInterest.checked){
+                        localStorage.setItem("mobileInterest","true");
+                    } else {
+                        localStorage.setItem("mobileInterest","false");
+                    }   
+                    if (form.desktopInterest.checked){
+                        localStorage.setItem("desktopInterest","true"); 
+                    } else {
+                        localStorage.setItem("desktopInterest","false");
+                    }
+                    if (form.WebInterest.checked){
+                        localStorage.setItem("webInterest","true");
+                    } else {
+                        localStorage.setItem("desktopInterest","false");
+                    }
+                    if (form.allInterest.checked){
+                        localStorage.setItem("allInterest","true"); 
+                    } else {
+                        localStorage.setItem("desktopInterest","false");
+                    }
+                    //
+
+
+
+                    // and finally go to next page 
+                    document.location.href = "welcome.html"; 
+                }
+               
             }
 
         </script>
