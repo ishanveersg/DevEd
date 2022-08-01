@@ -10,6 +10,14 @@
     <title>DevEd</title>
 </head>
 <body>
+    <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="web.html">Web</a>
+        <a href="mobile.html">Mobile</a>
+        <a href="desktop.html">Desktop</a>
+        <a href="linux.html">Linux</a>
+        <a href="about.html">About</a>
+      </div>
     <section>
         <div class="container title">
             <span style="font-family: VT323; font-size: 100px">DevEd</span><br>
@@ -147,7 +155,7 @@
             console.log(" mobile true"); 
 
             if (patience === "now"){
-                if (js === 0 && java === 0) {
+                if (java === 0) {
                  recommended_language = "javascript";
                  recommended_plateform = "mobile";  
                 } else if (java != 0 ) {
