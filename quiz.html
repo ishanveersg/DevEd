@@ -87,10 +87,10 @@
                 // reload the page 
                 document.location.href = "quiz.html"; 
             } else {
-                // proceed and store value in the sessionStorage  
+                // proceed and store value in the localStorage  
                     
                 // get name 
-                sessionStorage.setItem("username", name);
+                localStorage.setItem("username", name);
 
                 // get languages 
                 let known_languages = new Array (form.know_html.checked, form.know_css.checked, form.know_js.checked, form.know_python.checked, form.know_java, form.know_cpp);
@@ -108,6 +108,7 @@
                                 css+=1; 
                                 languages_values[i]+=1 ; 
                                 console.log("css true");
+                                console.log(languages_values[i]);
                             } else if (i ===2 ){
                                 js +=1 ;
                                 languages_values[i]+=1 ;
@@ -129,16 +130,16 @@
                             }
                             break ; 
                         case false : 
-                            languages[i]+=0 ; 
+                            languages_values[i]+=0 ; 
                             break ; 
                     }
                 }
                 console.log("languages values : " + languages_values);
                 for (let i = 0 ; i < 6 ; i++){
                     if (languages_values[i] === 0 ){
-                        sessionStorage.setItem(languages[i],"0"); 
+                        localStorage.setItem(languages[i],"0"); 
                     } else {
-                        sessionStorage.setItem(languages[i],"1"); 
+                        localStorage.setItem(languages[i],"1"); 
                     }
                 }
 
@@ -153,13 +154,13 @@
                 let reasons = ["school","projects", "hacking"]
                 switch(count_reason){
                     case 0 : 
-                        sessionStorage.setItem("ReasonForLearning",reasons[0]); 
+                        localStorage.setItem("ReasonForLearning",reasons[0]); 
                         break; 
                     case 1 : 
-                    sessionStorage.setItem("ReasonForLearning",reasons[1]); 
+                    localStorage.setItem("ReasonForLearning",reasons[1]); 
                         break; 
                     case 2 : 
-                    sessionStorage.setItem("ReasonForLearning",reasons[2]); 
+                    localStorage.setItem("ReasonForLearning",reasons[2]); 
                         break; 
 
                 }
@@ -176,10 +177,10 @@
                 let patience = ["now","canWait"]
                 switch(count_reason){
                     case 0 : 
-                        sessionStorage.setItem("shareTime",patience[0]); 
+                        localStorage.setItem("shareTime",patience[0]); 
                         break; 
                     case 1 : 
-                    sessionStorage.setItem("shareTime",patience[1]); 
+                    localStorage.setItem("shareTime",patience[1]); 
                         break; 
 
                 }
@@ -201,35 +202,35 @@
                 switch(count_interest){
                     case 0 : 
                         // set its value to true 
-                        sessionStorage.setItem(interest[0],"true");
+                        localStorage.setItem(interest[0],"true");
                         // and all the rest to false 
-                        sessionStorage.setItem(interest[1],"false"); 
-                        sessionStorage.setItem(interest[2],"false");
-                        sessionStorage.setItem(interest[3],"false");
+                        localStorage.setItem(interest[1],"false"); 
+                        localStorage.setItem(interest[2],"false");
+                        localStorage.setItem(interest[3],"false");
                         break; 
                     case 1 : 
                      // set its value to true 
-                          sessionStorage.setItem(interest[1],"true");
+                          localStorage.setItem(interest[1],"true");
                         // and all the rest to false 
-                        sessionStorage.setItem(interest[0],"false"); 
-                        sessionStorage.setItem(interest[2],"false");
-                        sessionStorage.setItem(interest[3],"false");
+                        localStorage.setItem(interest[0],"false"); 
+                        localStorage.setItem(interest[2],"false");
+                        localStorage.setItem(interest[3],"false");
                         break; 
                     case 2 : 
                      // set its value to true 
-                     sessionStorage.setItem(interest[2],"true");
+                     localStorage.setItem(interest[2],"true");
                         // and all the rest to false 
-                        sessionStorage.setItem(interest[0],"false"); 
-                        sessionStorage.setItem(interest[1],"false");
-                        sessionStorage.setItem(interest[3],"false"); 
+                        localStorage.setItem(interest[0],"false"); 
+                        localStorage.setItem(interest[1],"false");
+                        localStorage.setItem(interest[3],"false"); 
                         break; 
                     case 3 : 
                          // set its value to true 
-                         sessionStorage.setItem(interest[3],"true");
+                         localStorage.setItem(interest[3],"true");
                         // and all the rest to true - since it's all 
-                        sessionStorage.setItem(interest[1],"true"); 
-                        sessionStorage.setItem(interest[2],"true");
-                        sessionStorage.setItem(interest[0],"true");
+                        localStorage.setItem(interest[1],"true"); 
+                        localStorage.setItem(interest[2],"true");
+                        localStorage.setItem(interest[0],"true");
                         break ; 
                 }
                 
