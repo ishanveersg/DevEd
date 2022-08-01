@@ -13,3 +13,15 @@ document.getElementById("desktop").onclick = function () {
 document.getElementById("linux").onclick = function () {
     location.href = "linux.html";
 };
+document.getElementById("javascript").onclick = function () {
+    location.href = "languages/javascript.html";
+};
+document.getElementById("python").onclick = function () {
+    location.href = "languages/python.html";
+};
+document.getElementById("java").onclick = function () {
+    location.href = "languages/java.html";
+};
+document.getElementById("cplusplus").onclick = function () {
+    location.href = "languages/cplusplus.html";
+};

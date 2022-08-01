@@ -1,7 +1,7 @@
   // get values from local storage 
         // get name 
         let username =  localStorage.getItem("username");
-        document.getElementById("welcome").innerHTML=  "Welcome to our website " + username;
+        document.getElementById("welcome").innerHTML=  "Welcome " + username +"!";
 
         // get languages 
         let html = parseInt(localStorage.getItem("html"));
@@ -113,9 +113,9 @@
         }
         
         // let the user know 
-        path = " we suggest that you learn the programming language " + recommended_language + " for the plateform  " + recommended_plateform + " "; 
+        path = " we suggest you learn the programming language " + recommended_language + " for " + recommended_plateform + " "; 
         
-        document.getElementById("values").innerHTML= "Based on your reponses, " + path + " ." + " Please click on  the cards ! " ; 
+        document.getElementById("values").innerHTML= "Based on your reponses, " + path + " ." + " Learn more by clicking below! " ; 
 
         // display the rights the cards 
         
@@ -149,3 +149,32 @@
                  document.getElementById('cpp').style.display='block'; 
                 break; 
         }
+
+        // document.getElementById("quiz").onclick = function () {
+        //     location.href = "quiz.html";
+        // };
+        document.getElementById("mobile").onclick = function () {
+            location.href = "mobile.html";
+        };
+        document.getElementById("web").onclick = function () {
+            location.href = "web.html";
+        };
+        document.getElementById("desktop").onclick = function () {
+            location.href = "desktop.html";
+        };
+        document.getElementById("linux").onclick = function () {
+            location.href = "linux.html";
+        };
+        document.getElementById("javascript").onclick = function () {
+            location.href = "languages/javascript.html";
+        };
+        document.getElementById("python").onclick = function () {
+            location.href = "languages/python.html";
+        };
+        document.getElementById("java").onclick = function () {
+            location.href = "languages/java.html";
+        };
+        document.getElementById("cplusplus").onclick = function () {
+            location.href = "languages/cplusplus.html";
+        };
+        
