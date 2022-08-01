@@ -4,27 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="quiz.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323" rel="stylesheet">
+    <script src="quiz.js" defer></script>
     <title>Quiz</title>
+    <div class="container title">
+        <span style="font-family: VT323; font-size: 100px">DevEd Quiz</span><br>
+    </div>
 </head>
 <body>
-    <input type="text" name="" placeholder="Enter your name" id="name">
-    <button>Continue as Anonymous</button>
+    <div>
+        <form name="myform"  method="get" >
+            
+            <!-- get name  -->
+            <span id="askname">Please enter your name <b>before</b> proceeding</span><br>
+            <input type="text" name="username" placeholder="Name" id="name">
+
+            <!-- get languages  -->
+            <h2>What languages are you familiar with?</h2>
+                <input type="checkbox" id="html" name="know_html" value="HTML">
+                <label for="html">HTML</label><br>
+                <input type="checkbox" id="css" name="know_css" value="CSS">
+                <label for="css">CSS</label><br>
+                <input type="checkbox" id="javascript" name="know_js" value="JavaScript">
+                <label for="javascript">JavaScript</label>
+                <input type="checkbox" id="java" name="know_java" value="java">
+                <label for="java">Java</label>
+                <input type="checkbox" id="python" name="know_python" value="python">
+                <label for="python">Python</label>
+                <input type="checkbox" id="cpp" name="know_cpp" value="cpp">
+                <label for="cpp">C++</label>
+
+            <!-- get reason for learning -->
+            <h2> Why to you wish to learn programming </h2>
+                <input type="radio" id="school" name="reason" value="school" onclick=0 >
+                <label for="school">To prepare for school/university</label><br>
+                <input type="radio" id="project" name="reason" value="projects" onclick=0>
+                <label for="projects">To build cool projects</label><br>
+                <input type="radio" id="hacker" name="reason" value="hacker" onclick=0>
+                <label for="hacker">To be a hackerman!!</label><br>
+            
+            <!-- how quickly does he want the results -->
+            <h2>How quicky do you want to share the results of your learning?</h2>
+                <input type="radio" id="fast" name="shareTime" value="fast">
+                <label for="share">I want to do it as soon as possible </label><br>
+                <input type="radio" id="slow" name="shareTime" value="slow">
+                <label for="share">I don't mind waiting (perfection takes time!)</label><br>
+
+            <!-- Particular interests  -->
+            <h2>What platforms are you interested in?</h2>
+            <input type="radio" id="mobileInterest" name="interest" value="mobile">
+                <label for="Mobile">Mobile</label><br>
+                <input type="radio" id="desktopInterest" name="interest" value="Desktop">
+                <label for="desktop">Desktop</label><br>
+                <input type="radio" id="WebInterest" name="interest" value="Web">
+                <label for="Web">Web</label><br>
+                <input type="radio" id="allInterest" name="interest" value="all">
+                <label for="all">All of the above</label><br><br>
 
 
+            <!-- form  submission -->
+            <input type="button" name="buttonS" value="View results" onclick="setValues(this.form)">
+          </form>           
+    </div>
 
-    <h1>What languages are you familiar with?</h1>
-      <input type="radio" id="html" name="fav_language" value="HTML">
-      <label for="html">HTML</label><br>
-      <input type="radio" id="css" name="fav_language" value="CSS">
-      <label for="css">CSS</label><br>
-      <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-      <label for="javascript">JavaScript</label>
-
-    <h1>Are you looking to learn programming for school or for projects?</h1>
-    <button>School/University</button>
-    <button>Build cool personal projects</button>
-
-    <button></button>
-    
 </body>
+
 </html>
