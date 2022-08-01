@@ -87,37 +87,43 @@
                 // reload the page 
                 document.location.href = "quiz.html"; 
             } else {
-                // proceed and store value in the localStorage  
+                // proceed and store value in the sessionStorage  
                     
                 // get name 
-                localStorage.setItem("username", name);
+                sessionStorage.setItem("username", name);
 
                 // get languages 
                 let known_languages = new Array (form.know_html.checked, form.know_css.checked, form.know_js.checked, form.know_python.checked, form.know_java, form.know_cpp);
-                let languages = ["html","css", "js", "python", "java","cpp"];
+                let languages = ['html','css', 'js', 'python', 'java','cpp'];
                 let languages_values = [0,0,0,0,0,0]; 
                 // increment values for the chosen languages 
                 for ( let i = 0 ; i < 6 ; i++){
                     switch(known_languages[i]){
                         case true : 
-                            if (languages[i] === "html" ){
+                            if ( i === 0 ){
                                 html+=1; 
-                                languages_values[i]+=1 ; 
-                            } else if (languages[i] === "css"){
+                                languages_values[i]+=1 ;
+                                console.log("Html true"); 
+                            } else if (i === 1 ){
                                 css+=1; 
                                 languages_values[i]+=1 ; 
-                            } else if (languages[i] === "js"){
+                                console.log("css true");
+                            } else if (i ===2 ){
                                 js +=1 ;
-                                languages_values[i]+=1 ; 
-                            } else if (languages[i] === "python"){
+                                languages_values[i]+=1 ;
+                                console.log("js true"); 
+                            } else if (i === 3 ){
                                 python +=1 ;
                                 languages_values[i]+=1 ; 
-                            } else if (languages[i] === "java") {
+                                console.log("python true");
+                            } else if (i === 4) {
                                 java +=1 ;
                                 languages_values[i]+=1 ; 
-                            } else if (languages[i] === "cpp"){
+                                console.log("java true");
+                            } else if (i===5  ){
                                 cpp +=1 ; 
                                 languages_values[i]+=1 ; 
+                                console.log("cpp true");
                             } else {
                                 // nothing 
                             }
@@ -127,11 +133,12 @@
                             break ; 
                     }
                 }
+                console.log("languages values : " + languages_values);
                 for (let i = 0 ; i < 6 ; i++){
                     if (languages_values[i] === 0 ){
-                        localStorage.setItem(languages[i],"0"); 
+                        sessionStorage.setItem(languages[i],"0"); 
                     } else {
-                        localStorage.setItem(languages[i],"1"); 
+                        sessionStorage.setItem(languages[i],"1"); 
                     }
                 }
 
@@ -146,13 +153,13 @@
                 let reasons = ["school","projects", "hacking"]
                 switch(count_reason){
                     case 0 : 
-                        localStorage.setItem("ReasonForLearning",reasons[0]); 
+                        sessionStorage.setItem("ReasonForLearning",reasons[0]); 
                         break; 
                     case 1 : 
-                    localStorage.setItem("ReasonForLearning",reasons[1]); 
+                    sessionStorage.setItem("ReasonForLearning",reasons[1]); 
                         break; 
                     case 2 : 
-                    localStorage.setItem("ReasonForLearning",reasons[2]); 
+                    sessionStorage.setItem("ReasonForLearning",reasons[2]); 
                         break; 
 
                 }
@@ -169,10 +176,10 @@
                 let patience = ["now","canWait"]
                 switch(count_reason){
                     case 0 : 
-                        localStorage.setItem("shareTime",patience[0]); 
+                        sessionStorage.setItem("shareTime",patience[0]); 
                         break; 
                     case 1 : 
-                    localStorage.setItem("shareTime",patience[1]); 
+                    sessionStorage.setItem("shareTime",patience[1]); 
                         break; 
 
                 }
@@ -182,45 +189,47 @@
                 // get particular interests 
 
                 let count_interest = - 1  ; 
-                for (let count = 0 ; count < 3 ; count++){
+                for (let count = 0 ; count < 4 ; count++){
                     if (form.interest[count].checked){
                         count_interest = count; 
                         break; 
                     }
                 }
                 let interest = ["mobileInterest","desktopInterest", "webInterest","allInterest"]
+                console.log(" quiz : " + count_interest); 
+                //alert(count_interest); 
                 switch(count_interest){
                     case 0 : 
                         // set its value to true 
-                        localStorage.setItem(interest[0],"true");
+                        sessionStorage.setItem(interest[0],"true");
                         // and all the rest to false 
-                        localStorage.setItem(interest[1],"false"); 
-                        localStorage.setItem(interest[2],"false");
-                        localStorage.setItem(interest[3],"false");
+                        sessionStorage.setItem(interest[1],"false"); 
+                        sessionStorage.setItem(interest[2],"false");
+                        sessionStorage.setItem(interest[3],"false");
                         break; 
                     case 1 : 
                      // set its value to true 
-                          localStorage.setItem(interest[1],"true");
+                          sessionStorage.setItem(interest[1],"true");
                         // and all the rest to false 
-                        localStorage.setItem(interest[0],"false"); 
-                        localStorage.setItem(interest[2],"false");
-                        localStorage.setItem(interest[3],"false");
+                        sessionStorage.setItem(interest[0],"false"); 
+                        sessionStorage.setItem(interest[2],"false");
+                        sessionStorage.setItem(interest[3],"false");
                         break; 
                     case 2 : 
                      // set its value to true 
-                     localStorage.setItem(interest[2],"true");
+                     sessionStorage.setItem(interest[2],"true");
                         // and all the rest to false 
-                        localStorage.setItem(interest[0],"false"); 
-                        localStorage.setItem(interest[1],"false");
-                        localStorage.setItem(interest[3],"false"); 
+                        sessionStorage.setItem(interest[0],"false"); 
+                        sessionStorage.setItem(interest[1],"false");
+                        sessionStorage.setItem(interest[3],"false"); 
                         break; 
                     case 3 : 
                          // set its value to true 
-                         localStorage.setItem(interest[3],"true");
+                         sessionStorage.setItem(interest[3],"true");
                         // and all the rest to true - since it's all 
-                        localStorage.setItem(interest[1],"true"); 
-                        localStorage.setItem(interest[2],"true");
-                        localStorage.setItem(interest[3],"true");
+                        sessionStorage.setItem(interest[1],"true"); 
+                        sessionStorage.setItem(interest[2],"true");
+                        sessionStorage.setItem(interest[0],"true");
                         break ; 
                 }
                 

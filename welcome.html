@@ -30,36 +30,102 @@
             </div>
         </div>
     </section>
-
+    <section>
+        <div class="container">
+            <div class="flexbox-container">
+                <div class="devpath" id="mobile" style="display: none;">
+                    <div class="flexbox-container-vertical" >
+                        <img src="images/mobile.png" alt="mobile icon" style="max-width: 60%; margin-top: 20px;">
+                        <span class="devpathTitle" style="font-weight: bold;">Mobile Application</span>
+                    </div>
+                </div>
+                <div class="devpath" id="web"  style="display: none;">
+                    <div class="flexbox-container-vertical" >
+                        <img src="images/web.png" alt="web icon" style="max-width: 60%; margin-top: 20px;">
+                        <span class="devpathTitle" style="font-weight: bold;">Web Developement</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flexbox-container"  style="display: none;" >
+                <div class="devpath" id="desktop">
+                    <div class="flexbox-container-vertical" >
+                        <img src="images/desktop.png" alt="desktop icon" style="max-width: 60%; margin-top: 20px;">
+                        <span class="devpathTitle" style="font-weight: bold;">Desktop Application</span>
+                    </div>
+                </div>
+                <div class="devpath" id="linux" style="display: none;">
+                    <div class="flexbox-container-vertical" >
+                        <img src="images/Linux.png" alt="linux icon" style="max-width: 60%; margin-top: 20px;">
+                        <span class="devpathTitle" style="font-weight: bold;">Linux Administration</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section>
+        <div class="container title">
+            <span>Languages</span>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="flexbox-container">
+                <div class="devpath" id="Javascript" style="display: none;">
+                    <div class="flexbox-container-vertical" >
+                        <img src="images/languages/javascript.png" alt="Javascipt icon" style="max-width: 60%; margin-top: 20px;">
+                        <span class="devpathTitle" style="font-weight: bold;">JavaScript</span>
+                    </div>
+                </div>
+                <div class="devpath" id="python" style="display: none;">
+                    <div class="flexbox-container-vertical"  >
+                        <img src="images/languages/python.png" alt="python icon" style="max-width: 60%; margin-top: 20px;">
+                        <span class="devpathTitle" style="font-weight: bold;">Python</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flexbox-container">
+                <div class="devpath" id="java" style="display: none;">
+                    <div class="flexbox-container-vertical"  >
+                        <img src="images/languages/java.png" alt="Java icon" style="max-width: 60%; margin-top: 20px;">
+                        <span class="devpathTitle" style="font-weight: bold;">Java</span>
+                    </div>
+                </div>
+                <div class="devpath" id="cpp" style="display: none;">
+                    <div class="flexbox-container-vertical" >
+                        <img src="images/languages/cplusplus.png" alt="Cplusplus icon" style="max-width: 60%; margin-top: 20px;">
+                        <span class="devpathTitle" style="font-weight: bold;">C/C++</span>
+                    </div>
+                </div>
+            </div>
+    </section>
     <script type="text/javascript">
       // get values from local storage 
         // get name 
-        let username =  localStorage.getItem("username");
+        let username =  sessionStorage.getItem("username");
         document.getElementById("welcome").innerHTML=  "Welcome to our website " + username;
 
         // get languages 
-        let html = parseInt(localStorage.getItem("html"));
-        let css = parseInt(localStorage.getItem("css")); 
-        let js = parseInt(localStorage.getItem("js")); 
-        let python = parseInt(localStorage.getItem("python")); 
-        let java =  parseInt(localStorage.getItem("java")); 
-        let cpp = parseInt(localStorage.getItem("cpp"));  
+        let html = parseInt(sessionStorage.getItem("html"));
+        let css = parseInt(sessionStorage.getItem("css")); 
+        let js = parseInt(sessionStorage.getItem("js")); 
+        let python = parseInt(sessionStorage.getItem("python")); 
+        let java =  parseInt(sessionStorage.getItem("java")); 
+        let cpp = parseInt(sessionStorage.getItem("cpp"));  
 
         // get reason for learning 
-        let reason =  localStorage.getItem("ReasonForLearning"); 
+        let reason =  sessionStorage.getItem("ReasonForLearning"); 
         
         // get patience 
-        let patience =   localStorage.getItem("shareTime"); 
+        let patience =   sessionStorage.getItem("shareTime"); 
 
         // get interests 
-        let mobile  =  localStorage.getItem("mobileInterest");
-        let desktop = localStorage.getItem("desktopInterest"); 
-        let web = localStorage.getItem("webInterest");
-        let all = localStorage.getItem("allInterest"); 
+        let mobile  =  sessionStorage.getItem("mobileInterest");
+        let desktop = sessionStorage.getItem("desktopInterest"); 
+        let web = sessionStorage.getItem("webInterest");
+        let all = sessionStorage.getItem("allInterest"); 
 
         // display results (temporary) - juste pour etre sur que les bonnes valeura sont transm8ses 
-        // document.getElementById("values").innerHTML=  "Values received : " + username  + "  "  + html.toString() +  " " + css.toString() +  " " + js.toString() +  " " + python.toString() +  " " + java.toString() +  " " + cpp.toString +  " " + reason +  " " + patience +  " " + mobile +  " " + desktop +  " " + web +  " " + all;
-
+      //   document.getElementById("values").innerHTML=  "Values received : " + username  + "  "  + html.toString() +  " " + css.toString() +  " " + js.toString() +  " " + python.toString() +  " " + java.toString() +  " " + cpp.toString() +  " " + reason +  " " + patience +  " " + mobile +  " " + desktop +  " " + web +  " " + all;
+        alert("Values received : " + username  + "  "  + html.toString() +  " " + css.toString() +  " " + js.toString() +  " " + python.toString() +  " " + java.toString() +  " " + cpp.toString() +  " " + reason +  " " + patience +  " " + mobile +  " " + desktop +  " " + web +  " " + all);
         // create scenario
         let path = ""; 
         let recommended_language = ""; 
@@ -151,10 +217,38 @@
         
         document.getElementById("values").innerHTML= "Based on your reponses, " + path + " ." + " Please click on  the cards ! " ; 
 
+        // display the rights the cards 
+        
+        // display plateform 
+        switch(recommended_plateform){
+            case "mobile" : 
+                document.getElementById('mobile').style.display='block'; 
+                break; 
+            case "web": 
+                document.getElementById('web').style.display='block'; 
+                break; 
+            case "desktop": 
+                document.getElementById('desktop').style.display='block'; 
+                break; 
+            case "crossplateform": 
+                 document.getElementById('crossplateform').style.display='block'; 
+                break; 
+        }
 
-
-
-
+        switch(recommended_language){
+            case "java" : 
+                document.getElementById('java').style.display='block'; 
+                break; 
+            case "python": 
+                document.getElementById('python').style.display='block'; 
+                break; 
+            case "javascript": 
+                document.getElementById('Javascript').style.display='block'; 
+                break; 
+            case "c++": 
+                 document.getElementById('cpp').style.display='block'; 
+                break; 
+        }
 
     </script>
 </body>
